@@ -1,104 +1,401 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<script data-goatcounter="https://thornumak.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+    
     <title>Thornumak - Learning and Business Tools</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f9fafb;
+                --text-primary: #111827;
+                --text-secondary: #6b7280;
+                --card-bg: rgba(0, 0, 0, 0.02);
+                --card-border: rgba(0, 0, 0, 0.06);
+            }
+        }
+
         body {
-            font-family: -apple-system, system-ui, sans-serif;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
             line-height: 1.6;
-            color: #2c3e50;
+            font-size: 16px;
+            overflow-x: hidden;
+            position: relative;
         }
-        h1 { 
-            font-size: 2em; 
-            margin-bottom: 10px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
+
+        /* Animated background gradient orbs */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
         }
-        .tagline { 
-            color: #7f8c8d; 
-            margin-bottom: 40px;
-            font-size: 1.1em;
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #f093fb 0%, transparent 70%);
+            opacity: 0.08;
+            animation: float 25s ease-in-out infinite reverse;
+            pointer-events: none;
         }
-        h2 { 
-            margin-top: 40px; 
-            margin-bottom: 20px;
-            color: #34495e;
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
         }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header with gradient text */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background: var(--gradient-1); }
+            50% { background: var(--gradient-2); }
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+
+        h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin: 60px 0 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--card-border), transparent);
+        }
+
+        /* Modern glass-morphism cards */
         .project {
-            margin-bottom: 25px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 5px;
+            margin-bottom: 24px;
+            padding: 28px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: calc(var(--i) * 0.1s);
         }
-        .project h3 { 
-            margin-bottom: 5px;
-            color: #2c3e50;
+
+        .project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .project p { 
-            color: #555;
-            margin-bottom: 5px;
+
+        .project:hover {
+            transform: translateY(-4px);
+            background: var(--card-bg);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
         }
-        a { 
-            color: #3498db; 
+
+        .project:hover::before {
+            opacity: 1;
+        }
+
+        .project h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-emoji {
+            font-size: 1.5rem;
+            filter: grayscale(0.3);
+            transition: filter 0.3s ease;
+        }
+
+        .project:hover .project-emoji {
+            filter: grayscale(0);
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .project p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            font-weight: 500;
             text-decoration: none;
+            transition: all 0.2s ease;
+            position: relative;
         }
-        a:hover { text-decoration: underline; }
+
+        .project-link::after {
+            content: '→';
+            transition: transform 0.2s ease;
+        }
+
+        .project-link:hover {
+            color: var(--accent-hover);
+            gap: 10px;
+        }
+
+        .project-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        .coming-soon {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--card-border);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .about-section {
+            margin-top: 80px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #ecf0f1;
-            color: #7f8c8d;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .footer-note {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 16px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .project {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection style */
+        ::selection {
+            background: var(--accent);
+            color: white;
         }
     </style>
 </head>
 <body>
-    <h1>Thornumak</h1>
-    <p class="tagline">I build practical tools</p>
-    
-    <h2>Projects</h2>
-    
-    <div class="project">
-        <h3>🔤 Modern SRS Flashcard App</h3>
-        <p>Spaced repetition flashcard app:\n
-        - Typing and Rating modes
-        - CSV/Anki deck import
-        - Bulk adding cards
-        - Improved SM-2 based algorithm
-        - Better UI than Anki
-        </p>
-        <a href="https://mnemeo.com">Try it free →</a>
-    </div>
-    
-    <div class="project">
-        <h3>Study Time Tracker & Predictor for Anki</h3>
-        <p>Anki addon that predicts how long it will take to complete today's cards and tracks your progress in real-time. Shows time estimates based on your average review speed.</p>
-        <a href="#">Coming this week →</a>
-    </div>
-    
-    <div class="project">
-        <h3>📊 Invoice Management System</h3>
-        <p>Python tool for managing business invoices. 2 hours/month plus some headache saved.</p>
-        <a href="https://github.com/thornumak/Invoice-Management-System">Donwload on GitHub →</a>
-    </div>
+    <div class="container">
+        <header>
+            <h1>Thornumak</h1>
+            <p class="tagline">I build practical tools that actually work</p>
+        </header>
 
-       <div class="project">
-        <h3>Text simplifier app for language learners</h3>
-        <p>Automatically simplifies target language text based on user's level.</p>
-        <em>In development - watch this space</em>
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="project" style="--i: 1">
+                <h3><span class="project-emoji">🔤</span> Modern SRS Flashcard App</h3>
+                <p>Spaced repetition flashcard app with typing and rating modes, CSV/Anki deck import, bulk card management, improved SM-2 algorithm, and a UI that doesn't feel like 2005.</p>
+                <a href="https://mnemeo.com" class="project-link">Try it free</a>
+            </div>
+
+            <div class="project" style="--i: 2">
+                <h3><span class="project-emoji">⏱️</span> Study Time Tracker for Anki</h3>
+                <p>Anki addon that predicts completion time for today's cards and tracks progress in real-time. Shows estimates based on your actual review speed.</p>
+                <span class="coming-soon">Coming this week</span>
+            </div>
+
+            <div class="project" style="--i: 3">
+                <h3><span class="project-emoji">📊</span> Invoice Management System</h3>
+                <p>Python tool for managing business invoices. Saves 2 hours per month plus countless headaches.</p>
+                <a href="https://github.com/thornumak/Invoice-Management-System" class="project-link">Get on GitHub</a>
+            </div>
+
+            <div class="project" style="--i: 4">
+                <h3><span class="project-emoji">📖</span> Text Simplifier for Learners</h3>
+                <p>Automatically simplifies target language text based on user's proficiency level. Making language learning less overwhelming.</p>
+                <span class="coming-soon">In development</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>About</h2>
+            <div class="about-section">
+                <p>Language professional frustrated with existing learning and business tools. Building better alternatives because the current ones just aren't good enough.</p>
+                <p>Background in linguistics and localization, but mostly just someone who wants flashcard apps that don't make you want to quit studying.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <a href="mailto:thornumak@gmail.com" class="contact-link">
+                    <span>✉️</span> Get in touch
+                </a>
+                <p class="footer-note">Building tools that solve real problems</p>
+            </div>
+        </footer>
     </div>
-    
-    <h2>About</h2>
-    <p>Language professional looking for better learning and business tools. Building better alternatives.</p>
-    <p>Background in linguistics/localization, but mostly just someone who wants flashcard apps that don't suck.</p>
-    
-    <footer>
-        <p>Contact: thornumak@gmail.com</p>
-    </footer>
 </body>
 </html>
