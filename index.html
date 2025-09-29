@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thornumak - Thoughtful tools for learning and work</title>
+    <title>Thornumak - Learning and Business Tools</title>
     <style>
         * { 
             margin: 0; 
@@ -263,6 +263,118 @@
             font-weight: 500;
         }
 
+        /* Support/Coffee Section */
+        .support-section {
+            margin: 40px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(240, 147, 251, 0.1));
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .support-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent), #f093fb, var(--accent));
+            border-radius: 16px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            animation: rotateGradient 3s linear infinite;
+        }
+
+        @keyframes rotateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .support-section:hover::before {
+            opacity: 0.3;
+        }
+
+        .coffee-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: steam 3s ease-in-out infinite;
+        }
+
+        @keyframes steam {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-3px) rotate(-3deg); }
+            75% { transform: translateY(-3px) rotate(3deg); }
+        }
+
+        .support-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .support-section p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .coffee-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coffee-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .coffee-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .coffee-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .coffee-button .coffee-emoji {
+            font-size: 1.3rem;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
         .about-section {
             margin-top: 80px;
             padding: 40px;
@@ -293,7 +405,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .contact-link {
@@ -318,6 +437,7 @@
         .footer-note {
             color: var(--text-secondary);
             font-size: 0.875rem;
+            margin: 0;
         }
 
         /* Mobile optimization */
@@ -337,6 +457,15 @@
             h2 {
                 font-size: 1rem;
             }
+
+            .support-section {
+                padding: 30px 20px;
+            }
+
+            .coffee-button {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
         }
 
         /* Smooth scroll */
@@ -352,12 +481,6 @@
     </style>
 </head>
 <body>
-
-<script data-goatcounter="https://thornumak.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
-
-    
     <div class="container">
         <header>
             <h1>Thornumak</h1>
@@ -369,7 +492,7 @@
             
             <div class="project" style="--i: 1">
                 <h3><span class="project-emoji">🔤</span> Mnemeo - A smarter flashcard app</h3>
-                <p>For years, I was a huge fan of Memrise. After they changed direction, I couldn't find a replacement I loved, so I built my own. It combines a clean and modern UI with flexible study modes like typing and rating. It runs on a balanced algorithm that avoids the harsh resets of traditional SRS; it respects your long-term progress instead of punishing a single mistake. With easy import from Anki and CSV, it’s a more effective way to study.</p>
+                <p>For years, I was a huge fan of Memrise. After they changed direction, I couldn't find a replacement I loved, so I built my own. It combines a clean and modern UI with flexible study modes like typing and rating. It runs on a balanced algorithm that avoids the harsh resets of traditional SRS; it respects your long-term progress instead of punishing a single mistake. With easy import from Anki and CSV, it's a more effective way to study.</p>
                 <a href="https://mnemeo.com" class="project-link">Try it free</a>
             </div>
 
@@ -381,7 +504,7 @@
 
             <div class="project" style="--i: 3">
                 <h3><span class="project-emoji">📊</span> Invoice management system</h3>
-                <p>A simple Python tool to streamline freelance invoice management. I built it for myself to a couple of hours of tedious work each month.</p>
+                <p>A simple Python tool to streamline freelance invoice management. I built it for myself to save a couple of hours of tedious work each month.</p>
                 <a href="https://github.com/thornumak/Invoice-Management-System" class="project-link">Get on GitHub</a>
             </div>
 
@@ -396,18 +519,35 @@
             <h2>About</h2>
             <div class="about-section">
                 <p>As a language professional, I've always been interested in the tools that support my work and hobbies. Sometimes, the most direct way to understand something is to try and build it yourself. These projects are the result of that curiosity - practical applications I've built to explore ideas and refine my own process.</p>
-              
+            </div>
+        </section>
+
+        <section>
+            <h2>Support My Work</h2>
+            <div class="support-section">
+                <div class="coffee-icon">☕</div>
+                <h3>Fueled by coffee and curiosity</h3>
+                <p>Your support helps with the coffee part.</p>
+                <a href="https://buymeacoffee.com/thornumak" class="coffee-button" target="_blank">
+                    <span class="coffee-emoji">☕</span>
+                    <span>Buy me a coffee</span>
+                </a>
             </div>
         </section>
 
         <footer>
             <div class="footer-content">
-                <a href="mailto:thornumak@gmail.com" class="contact-link">
-                    <span>✉️</span> Get in touch
-                </a>
+                <div class="footer-links">
+                    <a href="mailto:thornumak@gmail.com" class="contact-link">
+                        <span>✉️</span> Get in touch
+                    </a>
+                </div>
                 <p class="footer-note">Building tools that solve real problems</p>
             </div>
         </footer>
     </div>
+
+    <!-- Buy Me a Coffee Widget -->
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="thornumak" data-description="Support me on Buy me a coffee!" data-message="Fueled by coffee and curiosity. Your support helps with the coffee part." data-color="#6366f1" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </body>
 </html>
