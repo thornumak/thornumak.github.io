@@ -188,27 +188,20 @@
 
 
 .video-breakout {
-    /* Set the desired width, over 100% */
-    width: 120%; 
-    
-    /* Center the element */
+    width: 100vw; /* Makes the container as wide as the browser window */
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
-
-    /* Optional: Add some vertical margin */
+    margin-left: -50vw; /* Pulls it back to the left, centering it */
+    
+    /* Optional styles for spacing */
     margin-top: 24px;
     margin-bottom: 24px;
-    border-radius: 8px; /* Optional: adds rounded corners */
-    overflow: hidden;   /* Ensures video respects the rounded corners */
 }
 
-/* The video itself should fill this new container */
 .video-breakout video {
     width: 100%;
-    display: block;
+    display: block; /* Removes any extra space below the video */
 }
-
         
     </style>
 </head>
