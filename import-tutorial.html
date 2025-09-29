@@ -232,14 +232,22 @@ This guide will show you exactly how to migrate your data and take back control 
             <h2>Step 3: The Import Process</h2>
             <p>This is where the magic happens. Mnemeo's import process is designed to be simple and intuitive.</p>
 
-          <video autoplay loop muted playsinline width="140%" style="display: block; margin: 0 auto;">
-  <source src="/screen.mp4" type="video/mp4">
-</video>
+          <div style="position: relative; overflow: hidden;">
+  <video autoplay loop muted playsinline style="
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+  ">
+    <source src="/screen.mp4" type="video/mp4">
+  </video>
+</div>
+
 
             <br>
             <br>
             <ol>
-                <li>From the app's dashboard, click the <strong>"Import"</strong> button and choose the **"CSV"** option.</li>
+                <li>From the app's dashboard, click the <strong>"Import"</strong> button and choose the CSV option.</li>
                 <li>When you select your <code>.csv</code> file, you'll see our **Field Mapping** interface. This is where you tell Mnemeo how to read your file.</li>
                 <li>For the "Front" and "Back" of your cards, simply choose which column from your file you'd like to use for each side. This gives you the flexibility to import your data exactly the way you want—you can even swap the front and back sides if you wish. You'll see a live preview of your first few cards to make sure everything looks right.</li>
                 <li>Finally, confirm your choices. The app will automatically create a new deck named after your file and import all valid cards, trimming any extra whitespace and skipping any empty rows.</li>
