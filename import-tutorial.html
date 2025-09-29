@@ -186,6 +186,30 @@
              font-size: 0.875rem;
         }
 
+
+.video-breakout {
+    /* Set the desired width, over 100% */
+    width: 120%; 
+    
+    /* Center the element */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* Optional: Add some vertical margin */
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-radius: 8px; /* Optional: adds rounded corners */
+    overflow: hidden;   /* Ensures video respects the rounded corners */
+}
+
+/* The video itself should fill this new container */
+.video-breakout video {
+    width: 100%;
+    display: block;
+}
+
+        
     </style>
 </head>
 <body>
@@ -232,10 +256,11 @@ This guide will show you exactly how to migrate your data and take back control 
             <h2>Step 3: The Import Process</h2>
             <p>This is where the magic happens. Mnemeo's import process is designed to be simple and intuitive.</p>
 
-         <div style="display: flex; justify-content: center; overflow: hidden;">
-  <video autoplay loop muted playsinline style="width: 150%;">
-    <source src="/screen.mp4" type="video/mp4">
-  </video>
+        <div class="video-breakout">
+    <video autoplay loop muted playsinline>
+      <source src="/images/your-demo-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 </div>
 
 
