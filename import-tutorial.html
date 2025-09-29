@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Importing CSV files into a flashcard app</title>
+    <title>Importing CSV files into Mnemeo</title>
     <style>
         * { 
             margin: 0; 
@@ -186,33 +186,20 @@
              font-size: 0.875rem;
         }
 
+        /* --- Full Width Video Section --- */
+        .full-width-video-section {
+            width: 100%;
+            margin: 40px 0; /* Adds space above and below the video */
+            display: flex;
+            justify-content: center;
+        }
 
-.video-breakout {
-    width: 100vw; /* Makes the container as wide as the browser window */
-    position: relative;
-    left: 50%;
-    margin-left: -50vw; /* Pulls it back to the left, centering it */
-    
-    /* Optional styles for spacing */
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
-
-.video-breakout video {
-    width: 100%;
-    display: block; /* Removes any extra space below the video */
-}
-
-
-        .video-breakout {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    
-    /* ADD THIS LINE */
-    overflow: visible; 
-}
+        .full-width-video-section video {
+            max-width: 900px; /* Controls the max size of the video */
+            width: 90%;       /* Makes it responsive */
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
         
     </style>
 </head>
@@ -235,9 +222,8 @@
                 <p class="meta">Published on September 29, 2025</p>
             </header>
 
-            <p>Like many longtime users, I was disappointed when Memrise began changing its focus and removing community-created courses. I built <strong>Mnemeo</strong> to be a new home for learners who miss that classic experience and want to preserve the vocabulary decks they've spent years creating.
-
-This guide will show you exactly how to migrate your data and take back control of your learning.</p>
+            <p>Like many longtime users, I was disappointed when Memrise began changing its focus and removing community-created courses. I built <strong>Mnemeo</strong> to be a new home for learners who miss that classic experience and want to preserve the vocabulary decks they've spent years creating.</p>
+            <p>This guide will show you exactly how to migrate your data and take back control of your learning.</p>
             
             <h2>Step 1: Get Your Data into a CSV File</h2>
             <p>The first step is to get your course data into a universal <code>.csv</code> (Comma-Separated Values) format. While we can't endorse any specific third-party tools, the community has developed several methods for various platforms.</p>
@@ -245,9 +231,8 @@ This guide will show you exactly how to migrate your data and take back control 
 
             <h2>Step 2: Prepare Your CSV File</h2>
             <p>Once you have your data, you need to ensure it's formatted correctly. Mnemeo is flexible, but a clean file is the key to a smooth import. The only requirement is that you have at least two columns: one for the "front" of your cards and one for the "back."</p>
-<img src="csv.png" width="350" alt="CSV file preparation for import">
-
-          
+            <img src="csv.png" width="350" alt="CSV file preparation for import">
+            
             <div class="tip-box">
                 <p><strong>Pro-Tip:</strong> Mnemeo's CSV parser is smart! It will automatically:</p>
                 <ul>
@@ -256,33 +241,30 @@ This guide will show you exactly how to migrate your data and take back control 
                     <li>Correctly handle complex fields that are in quotes (e.g., <code>"a field, with a comma"</code>).</li>
                 </ul>
             </div>
+        </article>
+    </div> <div class="full-width-video-section">
+        <video autoplay loop muted playsinline>
+            <source src="/images/your-demo-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
+    <div class="container"> <article class="article-content">
             <h2>Step 3: The Import Process</h2>
             <p>This is where the magic happens. Mnemeo's import process is designed to be simple and intuitive.</p>
-
-        <div class="video-breakout">
-    <video autoplay loop muted playsinline>
-      <source src="/images/your-demo-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-</div>
-
-
-
-            <br>
-            <br>
+            
             <ol>
                 <li>From the app's dashboard, click the <strong>"Import"</strong> button and choose the CSV option.</li>
-                <li>When you select your <code>.csv</code> file, you'll see our **Field Mapping** interface. This is where you tell Mnemeo how to read your file.</li>
+                <li>When you select your <code>.csv</code> file, you'll see our <strong>Field Mapping</strong> interface. This is where you tell Mnemeo how to read your file.</li>
                 <li>For the "Front" and "Back" of your cards, simply choose which column from your file you'd like to use for each side. This gives you the flexibility to import your data exactly the way you want—you can even swap the front and back sides if you wish. You'll see a live preview of your first few cards to make sure everything looks right.</li>
                 <li>Finally, confirm your choices. The app will automatically create a new deck named after your file and import all valid cards, trimming any extra whitespace and skipping any empty rows.</li>
             </ol>
             <p>That's it! Your learning data now has a new, secure home where you have full control.</p>
-
         </article>
         
-      
-
+        <footer>
+            <p>&copy; 2025 Myname. All rights reserved.</p>
+        </footer>
     </div>
 
 </body>
