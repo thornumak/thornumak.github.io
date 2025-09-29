@@ -264,116 +264,6 @@
         }
 
         /* Support/Coffee Section */
-        .support-section {
-            margin: 40px 0;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(240, 147, 251, 0.1));
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .support-section::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--accent), #f093fb, var(--accent));
-            border-radius: 16px;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.3s ease;
-            animation: rotateGradient 3s linear infinite;
-        }
-
-        @keyframes rotateGradient {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .support-section:hover::before {
-            opacity: 0.3;
-        }
-
-        .coffee-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            animation: steam 3s ease-in-out infinite;
-        }
-
-        @keyframes steam {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-3px) rotate(-3deg); }
-            75% { transform: translateY(-3px) rotate(3deg); }
-        }
-
-        .support-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .support-section p {
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .coffee-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .coffee-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .coffee-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
-        }
-
-        .coffee-button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .coffee-button .coffee-emoji {
-            font-size: 1.3rem;
-            animation: wiggle 2s ease-in-out infinite;
-        }
-
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-10deg); }
-            75% { transform: rotate(10deg); }
-        }
 
         .about-section {
             margin-top: 80px;
@@ -519,19 +409,6 @@
             <h2>About</h2>
             <div class="about-section">
                 <p>As a language professional, I've always been interested in the tools that support my work and hobbies. Sometimes, the most direct way to understand something is to try and build it yourself. These projects are the result of that curiosity - practical applications I've built to explore ideas and refine my own process.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Support My Work</h2>
-            <div class="support-section">
-                <div class="coffee-icon">☕</div>
-                <h3>Fueled by coffee and curiosity</h3>
-                <p>Your support helps with the coffee part.</p>
-                <a href="https://buymeacoffee.com/thornumak" class="coffee-button" target="_blank">
-                    <span class="coffee-emoji">☕</span>
-                    <span>Buy me a coffee</span>
-                </a>
             </div>
         </section>
 
