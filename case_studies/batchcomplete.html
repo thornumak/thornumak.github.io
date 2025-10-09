@@ -172,19 +172,22 @@
             border-radius: 8px;
         }
 
+        /* --- UPDATED BUTTON STYLE --- */
         .project-link {
             display: inline-block;
-            background-color: var(--accent);
-            color: #ffffff;
+            background-color: transparent; /* Changed from filled */
+            color: var(--accent); /* Changed from white */
+            border: 2px solid var(--accent); /* Added border */
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease; /* Updated transition */
         }
 
         .project-link:hover {
-            background-color: var(--accent-hover);
+            background-color: var(--accent); /* Fills on hover */
+            color: #ffffff; /* Text becomes white on hover */
         }
 
         footer {
@@ -212,36 +215,33 @@
     <div class="container">
         <article class="article-content">
             <header class="article-header">
-                <h1>Case Study: BatchComplete for Trados Studio</h1>
+                <h1>Case Study: BatchComplete Plugin for Trados Studio</h1>
                 <p class="hook">A targeted micro-solution designed to fix a single, frustrating workflow inefficiency in a professional software ecosystem.</p>
             </header>
 
-            <p>As a Digital Systems Architect and a long-time user of Trados Studio, my work involves both high-level system analysis and ground-level user experience. This project is a perfect example of how I apply that dual perspective to solve a real-world problem.</p>
+            <p>I believe that even powerful, professional software should feel intuitive at every level. This is my attempt to fix a small but persistent point of friction in Trados Studio that I experienced in my own daily workflow.</p>
             
-            <h2>The Diagnosis</h2>
-            <p>I identified a simple but tangible pain point: the software, despite its power, has no way to mark multiple projects as "Complete" at once. This sounds trivial, but for a professional managing many small projects, it creates significant friction. The result was an ever-growing list of "In Progress" projects, because the manual, one-by-one clean-up process was just too tedious.</p>
+            <h2>The Why</h2>
+            <p>Trados Studio, despite its power and being a true industry standard, has no way to mark multiple projects as "Complete" at once. This may sound trivial, but for a professional managing many small projects, it creates significant friction. The result was an ever-growing list of "In Progress" projects, because the manual, one-by-one clean-up process was just too tedious for me.</p>
 
-            <h2>The Architectural Challenge</h2>
-            <p>The challenge was not to build a complex new feature, but to design the most elegant and non-disruptive solution possible. The goal was to make the new function feel like it was a native part of the original software.</p>
+            <h2>The How</h2>
+            <p>I just wanted to create a simple fix that felt like it should have been there all along, without any friction for the end user.</p>
             <p>The final architecture was a minimalist intervention:</p>
             <ul>
                 <li><strong>Seamless Integration:</strong> The solution is a single command added directly to the existing right-click context menu, exactly where a user would intuitively expect to find it.</li>
                 <li><strong>Intelligent Filtering:</strong> The system was designed to be smart. If a user selects a mix of projects with different statuses, the plugin automatically processes only the relevant "In-Progress" ones, preventing errors and providing a clear confirmation message.</li>
             </ul>
 
-            <h2>The Outcome</h2>
+            <h2>The What</h2>
             <p>The result is a simple, lightweight plugin that solves a complex workflow problem. It's a clear example of how a precisely targeted solution can remove a daily frustration and restore a sense of order and efficiency for professional users.</p>
 
             <div class="cta-box">
-                <a href="https://github.com/thornumak/BatchComplete-for-Trados-Studio" class="project-link">Get the Plugin on GitHub</a>
+                <a href="[Your GitHub Download Link Here]" class="project-link">Get the Plugin on GitHub</a>
             </div>
         </article>
         
-        <footer>
-            <p>&copy; 2025 Rytis [Your Last Name]. All rights reserved.</p>
-        </footer>
+       
     </div>
 
 </body>
 </html>
-
