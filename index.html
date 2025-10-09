@@ -429,41 +429,46 @@
         }
 
         
-        /* --- Styling for the Links Container --- */
-/* This helps align the primary button and secondary link */
-.project-links-container {
-  display: flex; /* Aligns items in a row */
-  align-items: center; /* Vertically centers the items */
-  margin-top: 1rem; /* Adds some space above the links */
-  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-  gap: 15px; /* Adds space between the button and the link */
+/* Secondary CTA - Ghost Button Style */
+.secondary-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--card-border);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
-
-/* --- Styling for the Secondary Case Study Link --- */
-.case-study-link {
-  /* Reset any default button-like styles */
-  background: none;
-  border: none;
-  padding: 0;
-
-  /* --- Core Appearance --- */
-  /* Use a more subtle color than your primary links. Adjust to fit your site's palette. */
-  color: #666; 
-  font-size: 0.9em; /* Make it slightly smaller to reduce prominence */
-  font-weight: 500;
-  text-decoration: none; /* No underline by default for a cleaner look */
-  
-  /* --- Interactivity --- */
-  cursor: pointer;
-  transition: color 0.3s ease; /* Smooth transition for the hover effect */
+.secondary-cta:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(99, 102, 241, 0.05);
+    transform: translateY(-1px);
 }
 
-/* --- Hover Effect --- */
-/* On hover, add an underline and slightly darken the text to provide clear feedback */
-.case-study-link:hover {
-  color: #111; /* A darker text color on hover */
-  text-decoration: underline;
+.secondary-cta::after {
+    content: '↗';
+    font-size: 0.85em;
+    transition: transform 0.2s ease;
+}
+
+.secondary-cta:hover::after {
+    transform: translate(2px, -2px);
+}
+
+/* Wrapper for multiple CTAs */
+.project-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
 }
 
         
@@ -535,7 +540,7 @@
       <div class="project-links-container">
         <a href="https://ankiweb.net/shared/info/491818467?cb=1759124941199" class="project-link">Get on AnkiWeb</a>
     
-        <a href="/anki-addon-case-study.html" class="case-study-link">Read the case study</a>
+          <a href="#" class="secondary-cta">See the case study</a>
       </div>
         </div>
 
