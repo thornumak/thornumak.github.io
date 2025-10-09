@@ -428,6 +428,46 @@
             transform: scaleX(1);
         }
 
+        
+        /* --- Styling for the Links Container --- */
+/* This helps align the primary button and secondary link */
+.project-links-container {
+  display: flex; /* Aligns items in a row */
+  align-items: center; /* Vertically centers the items */
+  margin-top: 1rem; /* Adds some space above the links */
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 15px; /* Adds space between the button and the link */
+}
+
+
+/* --- Styling for the Secondary Case Study Link --- */
+.case-study-link {
+  /* Reset any default button-like styles */
+  background: none;
+  border: none;
+  padding: 0;
+
+  /* --- Core Appearance --- */
+  /* Use a more subtle color than your primary links. Adjust to fit your site's palette. */
+  color: #666; 
+  font-size: 0.9em; /* Make it slightly smaller to reduce prominence */
+  font-weight: 500;
+  text-decoration: none; /* No underline by default for a cleaner look */
+  
+  /* --- Interactivity --- */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+/* --- Hover Effect --- */
+/* On hover, add an underline and slightly darken the text to provide clear feedback */
+.case-study-link:hover {
+  color: #111; /* A darker text color on hover */
+  text-decoration: underline;
+}
+
+        
+
         /* Light mode adjustments for nav */
         @media (prefers-color-scheme: light) {
             .main-nav {
@@ -486,6 +526,18 @@
                 <p>Anki addon that estimates completion time for today's cards and tracks progress in real-time. Shows estimates based on your actual review speed.</p>
                 <a href="https://ankiweb.net/shared/info/491818467?cb=1759124941199" class="project-link">Get on AnkiWeb</a>
             </div>
+
+
+            <div class="project" style="--i: 2">
+      <h3>Daily Review Time Estimator for Anki</h3>
+      <p>Anki addon that estimates completion time for today's cards and tracks progress in real-time. Shows estimates based on your actual review speed.</p>
+  
+      <div class="project-links-container">
+        <a href="https://ankiweb.net/shared/info/491818467?cb=1759124941199" class="project-link">Get on AnkiWeb</a>
+    
+        <a href="/anki-addon-case-study.html" class="case-study-link">Read the case study</a>
+      </div>
+        </div>
 
              <div class="project" style="--i: 3">
                 <h3>BatchComplete - Custom plugin for Trados Studio</h3>
