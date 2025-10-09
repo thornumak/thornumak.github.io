@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: BatchComplete Plugin for Trados Studio</title>
+    <style>
+        /* --- Global Styles & Variables --- */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f9fafb;
+                --text-primary: #111827;
+                --text-secondary: #6b7280;
+                --card-bg: rgba(0, 0, 0, 0.02);
+                --card-border: rgba(0, 0, 0, 0.06);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- Navigation Bar --- */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            width: 100%;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        
+        .main-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .main-nav a:hover {
+            color: var(--text-primary);
+        }
+        
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .main-nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        @media (prefers-color-scheme: light) {
+            .main-nav {
+                background: rgba(255, 255, 255, 0.8);
+            }
+        }
+        
+        /* --- Article Styles --- */
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .article-header .hook {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .article-content {
+            line-height: 1.8;
+        }
+        
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .article-content p, .article-content li {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .article-content ul, .article-content ol {
+            padding-left: 20px;
+        }
+        
+        .article-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* --- CTA Box --- */
+        .cta-box {
+            text-align: center;
+            padding: 30px;
+            margin: 40px 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .project-link:hover {
+            background-color: var(--accent-hover);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/#projects">Projects</a> 
+            <a href="/notes.html">Notes</a>
+            <a href="/#about">About</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <article class="article-content">
+            <header class="article-header">
+                <h1>Case Study: BatchComplete for Trados Studio</h1>
+                <p class="hook">A targeted micro-solution designed to fix a single, frustrating workflow inefficiency in a professional software ecosystem.</p>
+            </header>
+
+            <p>As a Digital Systems Architect and a long-time user of Trados Studio, my work involves both high-level system analysis and ground-level user experience. This project is a perfect example of how I apply that dual perspective to solve a real-world problem.</p>
+            
+            <h2>The Diagnosis</h2>
+            <p>I identified a simple but tangible pain point: the software, despite its power, has no way to mark multiple projects as "Complete" at once. This sounds trivial, but for a professional managing many small projects, it creates significant friction. The result was an ever-growing list of "In Progress" projects, because the manual, one-by-one clean-up process was just too tedious.</p>
+
+            <h2>The Architectural Challenge</h2>
+            <p>The challenge was not to build a complex new feature, but to design the most elegant and non-disruptive solution possible. The goal was to make the new function feel like it was a native part of the original software.</p>
+            <p>The final architecture was a minimalist intervention:</p>
+            <ul>
+                <li><strong>Seamless Integration:</strong> The solution is a single command added directly to the existing right-click context menu, exactly where a user would intuitively expect to find it.</li>
+                <li><strong>Intelligent Filtering:</strong> The system was designed to be smart. If a user selects a mix of projects with different statuses, the plugin automatically processes only the relevant "In-Progress" ones, preventing errors and providing a clear confirmation message.</li>
+            </ul>
+
+            <h2>The Outcome</h2>
+            <p>The result is a simple, lightweight plugin that solves a complex workflow problem. It's a clear example of how a precisely targeted solution can remove a daily frustration and restore a sense of order and efficiency for professional users.</p>
+
+            <div class="cta-box">
+                <a href="https://github.com/thornumak/BatchComplete-for-Trados-Studio" class="project-link">Get the Plugin on GitHub</a>
+            </div>
+        </article>
+        
+        <footer>
+            <p>&copy; 2025 Rytis [Your Last Name]. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
+
