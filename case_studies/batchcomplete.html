@@ -138,6 +138,10 @@
             padding-bottom: 10px;
             border-bottom: 1px solid var(--card-border);
         }
+        
+        .article-content h2:first-of-type {
+             margin-top: 0;
+        }
 
         .article-content p, .article-content li {
             color: var(--text-secondary);
@@ -188,6 +192,22 @@
             background-color: var(--accent);
             color: #ffffff;
         }
+        
+        /* --- Full Width Visual Section --- */
+        .full-width-visual-section {
+            width: 100%;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .full-width-visual-section img {
+            max-width: 1000px;
+            width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid var(--card-border);
+        }
 
         footer {
             margin-top: 80px;
@@ -230,16 +250,21 @@
                 <li><strong>Seamless integration:</strong> The solution is a single command added directly to the existing right-click context menu, exactly where a user would intuitively expect to find it.</li>
                 <li><strong>Intelligent filtering:</strong> If a user selects a mix of projects with different statuses, the plugin automatically processes only the relevant "In-Progress" ones, preventing errors and providing a clear confirmation message: "Are you sure you want to mark [x] projects as completed", the [x] being only the uncompleted projects.</li>
             </ul>
+        </article>
+    </div>
 
+    <!-- The visual section is now outside the main container to allow it to be wider -->
+    <div class="full-width-visual-section">
+        <img src="https://raw.githubusercontent.com/thornumak/BatchComplete-for-Trados-Studio/main/demo2.gif" alt="A GIF demonstrating the BatchComplete plugin in action.">
+    </div>
 
-             <div class="full-width-visual-section">
-                <img src="https://raw.githubusercontent.com/thornumak/BatchComplete-for-Trados-Studio/main/demo2.gif" alt="A GIF demonstrating the BatchComplete plugin in action.">
-            </div>
-
+    <!-- We re-enter the container for the rest of the text -->
+    <div class="container">
+        <article class="article-content">
             <h2>Design decisions & trade-offs</h2>
             <p>Building a solution within an existing ecosystem always involves navigating technical constraints and making pragmatic choices.</p>
-             <ul>
-                <li><strong>Handling menu states:</strong> Initially, my goal was to create a perfectly seamless experience by disabling my "Batch Complete" option when only one project was selected, or even disabling the original "Mark as Complete" option to avoid redundancy. However, due to limitations in the Trados Studio API, I could not do it. However, I think that the core value for the user is the powerful batch functionality itself, and this minor UI imperfection is an acceptable compromise that didn't detract from solving the main problem.</li>
+            <ul>
+                <li><strong>Handling menu states:</strong> Initially, my goal was to create a perfectly seamless experience by disabling my "Batch Complete" option when only one project was selected, or even disabling the original "Mark as Complete" option to avoid redundancy. However, due to limitations in the Trados Studio API, I could not do it. But in the end, I think that the core value for the user is the powerful batch functionality itself, and this minor UI imperfection is an acceptable compromise that didn't detract from solving the main problem.</li>
                 <li><strong>Adding intelligent Feedback:</strong> I anticipated an edge case where a user might accidentally select projects that were already completed. To prevent confusion, I added specific logic to the system: if the plugin detects that all selected projects are already finished, it provides a helpful message: "All selected projects are already completed." The result is a more user-friendly experience.</li>
             </ul>
 
@@ -256,3 +281,4 @@
 
 </body>
 </html>
+
