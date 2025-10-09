@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: A Simple Invoice Tracker</title>
+    <style>
+        
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f9fafb;
+                --text-primary: #111827;
+                --text-secondary: #6b7280;
+                --card-bg: rgba(0, 0, 0, 0.02);
+                --card-border: rgba(0, 0, 0, 0.06);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- Navigation Bar (Same as your other pages) --- */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            width: 100%;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        
+        .main-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--text-primary);
+        }
+        
+        /* --- Article Styles (Same as your other pages) --- */
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .article-header .hook {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .article-content {
+            line-height: 1.8;
+        }
+        
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .article-content p, .article-content li {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .article-content ul {
+            padding-left: 20px;
+        }
+        
+        .article-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* --- CTA Box (Same as your other pages) --- */
+        .cta-box {
+            text-align: center;
+            padding: 30px;
+            margin: 40px 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .project-link:hover {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+/* --- Full Width Visual Section --- */
+.full-width-visual-section {
+    width: 100%;
+    margin: 40px 0; /* Adds space above and below */
+    display: flex;
+    justify-content: center;
+}
+
+.full-width-visual-section img {
+    max-width: 1000px; /* Controls the max size */
+    width: 90%;      /* Makes it responsive */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 1px solid var(--card-border);
+}
+
+
+
+      
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/#projects">Projects</a> 
+            <a href="/notes.html">Notes</a>
+            <a href="/#about">About</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <article class="article-content">
+            <header class="article-header">
+                <h1>Case Study: A Simple Invoice Tracker</h1>
+                <p class="hook">A pragmatic desktop app built to automate the tedious and error-prone parts of freelance financial admin.</p>
+            </header>
+
+            <p>This project started from a simple idea: when you feel a point of friction in your own workflow, build a tool to fix it. I built this app for myself to turn a tedious, error-prone chore into a simple one-click process.</p>
+            
+            <h2>The Diagnosis</h2>
+            <p>Like many freelancers, I found myself in a repetitive, manual loop every month: open a folder of PDF and Word invoices, copy the details (invoice number, amount, date), paste them into a spreadsheet, and then manually track payment status. It was a tedious, error-prone chore that was a poor use of my time.</p>
+
+            <h2>The Challenge</h2>
+            <p>The main idea was to build a simple, private, and offline-first desktop application that could automate the entire process. The automation is a two-step process: first, it uses a "patterns" feature to match an invoice's filename to a specific client, automatically filling in their details. Second, the app gets a bit "smart": it opens the PDF or DOCX file and searches for common keywords like "Invoice no.", "Amount due," or "Invoice date" to automatically find and extract the key data.</p>
+            
+            <h2>Key Features</h2>
+            <p>Beyond the core automation, I added a few other key features to make the app genuinely useful for day-to-day financial tracking:</p>
+            <ul>
+                <li><strong>Payment tracking dashboard:</strong> A simple table shows all invoices, color-coded by status (red for overdue, yellow for due soon, green for paid), so you can see what is happening at a glance.</li>
+                <li><strong>Full invoice management:</strong> You're not locked into the automation. You can manually add, edit, or delete any invoice record, and mark invoices as "Paid" with a single click.</li>
+                <li><strong>Simple statistics:</strong> A separate stats tab gives a high-level overview of your finances, with stuff like charts showing total revenue, unpaid amounts, and top clients.</li>
+            </ul>
+
+          <p>The design essentially gamifies the process of getting paid. The act of adding a new invoice is no longer a chore; it's a satisfying feedback loop that lets you instantly see the results of your work on the dashboard and the statistics screen</p>
+
+<div class="full-width-visual-section">
+    <img src="https://raw.githubusercontent.com/thornumak/Invoice-Management-System/refs/heads/main/images/tracking.png" alt="Invoice tracker main screen.">
+</div>
+
+          
+            <h2>Pragmatic Trade-offs</h2>
+            <p>This was a personal project, so I made some very conscious decisions to prioritize function over form and solve my own problem as efficiently as possible.</p>
+             <ul>
+                <li><strong>A Minimalist UI:</strong> The interface is built with the standard Python library Tkinter. It's not the prettiest app in the world, but it's functional, fast, and gets the job done without any unnecessary complexity.</li>
+                <li><strong>Personalized Automation:</strong> The core "patterns" feature is designed for my specific workflow. While the app still works perfectly well with manual entry for other users, the main automation is a niche, personalized solution.</li>
+                <li><strong>Manual Entry as a Fallback:</strong> I knew the automation wouldn't be perfect. For invoices with unusual filenames or layouts, I made sure there was a simple manual entry form. If the parsing fails, you can always just type in the details yourself, so you're never stuck.</li>
+                <li><strong>Euro-centric for now:</strong> The main stats dashboard currently aggregates all currencies into a total displayed in Euros (€). This was the simplest solution for my own needs, but it's a known limitation I may address in the future.</li>
+            </ul>
+
+            <h2>The Outcome</h2>
+            <p>In the end, what I have is a simple tool that turns a tedious monthly chore into a quick, automated process. It eliminates the kind of manual data entry that's prone to typos and headaches, and for me, it's a good reminder of how a small bit of automation can make a big difference.</p>
+
+            <div class="cta-box">
+                <a href="[Your GitHub Repo Link Here]" class="project-link">View the Code on GitHub</a>
+            </div>
+        </article>
+        
+        <footer>
+            <p>&copy; 2025 Rytis [Your Last Name]. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
+
