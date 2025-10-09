@@ -172,22 +172,21 @@
             border-radius: 8px;
         }
 
-        /* --- UPDATED BUTTON STYLE --- */
         .project-link {
             display: inline-block;
-            background-color: transparent; /* Changed from filled */
-            color: var(--accent); /* Changed from white */
-            border: 2px solid var(--accent); /* Added border */
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.2s ease, color 0.2s ease; /* Updated transition */
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
 
         .project-link:hover {
-            background-color: var(--accent); /* Fills on hover */
-            color: #ffffff; /* Text becomes white on hover */
+            background-color: var(--accent);
+            color: #ffffff;
         }
 
         footer {
@@ -221,22 +220,34 @@
 
             <p>I believe that even powerful, professional software should feel intuitive at every level. This is my attempt to fix a small but persistent point of friction in Trados Studio that I experienced in my own daily workflow.</p>
             
-            <h2>The Why</h2>
-            <p>Trados Studio, despite its power and being a true industry standard, has no way to mark multiple projects as "Complete" at once. This may sound trivial, but for a professional managing many small projects, it creates significant friction. The result was an ever-growing list of "In Progress" projects, because the manual, one-by-one clean-up process was just too tedious for me.</p>
+            <h2>The problem</h2>
+            <p>I identified a simple but tangible pain point: Trados Studio, despite its power and being a true industry standard, has no way to mark multiple projects as "Complete" at once. This sounds trivial, but for a professional managing many small projects, it creates significant friction. The result was an ever-growing list of "In Progress" projects, because the manual, one-by-one clean-up process was just too tedious.</p>
 
-            <h2>The How</h2>
-            <p>I just wanted to create a simple fix that felt like it should have been there all along, without any friction for the end user.</p>
-            <p>The final architecture was a minimalist intervention:</p>
+            <h2>The challenge</h2>
+            <p>The goal was to design the most elegant, minimalist and non-disruptive solution possible, making the new function feel like it was a native part of the original software.</p>
+
             <ul>
-                <li><strong>Seamless Integration:</strong> The solution is a single command added directly to the existing right-click context menu, exactly where a user would intuitively expect to find it.</li>
-                <li><strong>Intelligent Filtering:</strong> The system was designed to be smart. If a user selects a mix of projects with different statuses, the plugin automatically processes only the relevant "In-Progress" ones, preventing errors and providing a clear confirmation message.</li>
+                <li><strong>Seamless integration:</strong> The solution is a single command added directly to the existing right-click context menu, exactly where a user would intuitively expect to find it.</li>
+                <li><strong>Intelligent filtering:</strong> If a user selects a mix of projects with different statuses, the plugin automatically processes only the relevant "In-Progress" ones, preventing errors and providing a clear confirmation message: "Are you sure you want to mark [x] projects as completed", the [x] being only the uncompleted projects.</li>
             </ul>
 
-            <h2>The What</h2>
-            <p>The result is a simple, lightweight plugin that solves a complex workflow problem. It's a clear example of how a precisely targeted solution can remove a daily frustration and restore a sense of order and efficiency for professional users.</p>
+
+             <div class="full-width-visual-section">
+                <img src="https://raw.githubusercontent.com/thornumak/BatchComplete-for-Trados-Studio/main/demo2.gif" alt="A GIF demonstrating the BatchComplete plugin in action.">
+            </div>
+
+            <h2>Design decisions & trade-offs</h2>
+            <p>Building a solution within an existing ecosystem always involves navigating technical constraints and making pragmatic choices.</p>
+             <ul>
+                <li><strong>Handling menu states:</strong> Initially, my goal was to create a perfectly seamless experience by disabling my "Batch Complete" option when only one project was selected, or even disabling the original "Mark as Complete" option to avoid redundancy. However, due to limitations in the Trados Studio API, I could not do it. However, I think that the core value for the user is the powerful batch functionality itself, and this minor UI imperfection is an acceptable compromise that didn't detract from solving the main problem.</li>
+                <li><strong>Adding intelligent Feedback:</strong> I anticipated an edge case where a user might accidentally select projects that were already completed. To prevent confusion, I added specific logic to the system: if the plugin detects that all selected projects are already finished, it provides a helpful message: "All selected projects are already completed." The result is a more user-friendly experience.</li>
+            </ul>
+
+            <h2>The outcome</h2>
+            <p>The result is a simple, lightweight plugin that solves a tangible workflow problem. The solution allows professional users to better spend their time creating value instead of clicking around.</p>
 
             <div class="cta-box">
-                <a href="[Your GitHub Download Link Here]" class="project-link">Get the Plugin on GitHub</a>
+                <a href="https://github.com/thornumak/BatchComplete-for-Trados-Studio" class="project-link">Get the Plugin on GitHub</a>
             </div>
         </article>
         
