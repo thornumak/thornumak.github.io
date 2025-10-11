@@ -49,7 +49,7 @@
             padding: 60px 20px;
         }
 
-        /* --- Navigation Bar (Same as your other pages) --- */
+     
         .main-nav {
             position: sticky;
             top: 0;
@@ -82,7 +82,7 @@
             color: var(--text-primary);
         }
         
-        /* --- Article Styles (Same as your other pages) --- */
+       
         .article-header {
             text-align: center;
             margin-bottom: 40px;
@@ -137,7 +137,7 @@
             font-weight: 600;
         }
 
-        /* --- CTA Box (Same as your other pages) --- */
+       
         .cta-box {
             text-align: center;
             padding: 30px;
@@ -212,23 +212,23 @@
                 <p class="hook">A practical desktop app built to automate the tedious and error-prone parts of freelance financial admin.</p>
             </header>
 
-            <p>This project started from a simple idea: when you feel a point of friction in your own workflow, build a tool to fix it. I built this app for myself to turn a tedious, error-prone chore into a simple one-click process.</p>
+            <p>This project started from a simple idea: when you have a point of friction in your own workflow, build a tool to fix it. I built this app for myself to turn a tedious, error-prone chore into a simple one-click process.</p>
             
             <h2>The problem</h2>
             <p>Like many freelancers, I found myself in a repetitive, manual loop every month: open a folder of PDF and Word invoices, copy the details (invoice number, amount, date), paste them into a spreadsheet, and then manually track payment status. It was a tedious, error-prone chore that was a poor use of my time.</p>
 
             <h2>The challenge</h2>
-            <p>The main idea was to build a simple, private, and offline-first desktop application that could automate the entire process. The automation is a two-step process: first, it uses a "patterns" feature to match an invoice's filename to a specific client, automatically filling in their details. Second, the app gets a bit "smart": it opens the PDF or DOCX file and searches for common keywords like "Invoice no.", "Amount due," or "Invoice date" to automatically find and extract the key data.</p>
+            <p>The main idea was to build a simple, private desktop application that could automate the entire process. The automation is a two-step process: first, I created a "patterns" feature to match an invoice's filename to a specific client, automatically filling in their details. Second, the app gets a bit "smart": it opens the PDF or DOCX file and searches for common keywords like "Invoice no.", "Amount due," or "Invoice date" to automatically find and extract the key data.</p>
             
             <h2>Key Features</h2>
-            <p>Beyond the core automation, I added a few other key features to make the app genuinely useful for day-to-day financial tracking:</p>
+            <p>Beyond the core automation, I added a few other key features to make the app genuinely useful for financial tracking:</p>
             <ul>
                 <li><strong>Payment tracking dashboard:</strong> A simple table shows all invoices, color-coded by status (red for overdue, yellow for due soon, green for paid), so you can see what is happening at a glance.</li>
                 <li><strong>Full invoice management:</strong> You're not locked into the automation. You can manually add, edit, or delete any invoice record, and mark invoices as "Paid" with a single click.</li>
                 <li><strong>Simple statistics:</strong> A separate stats tab gives a high-level overview of your finances, with stuff like charts showing total revenue, unpaid amounts, and top clients.</li>
             </ul>
 
-          <p>The design essentially gamifies the process of getting paid. The act of adding a new invoice is no longer a chore; it's a satisfying feedback loop that lets you instantly see the results of your work on the dashboard and the statistics screen</p>
+          <p>Crucially for me, the design essentially gamifies the process of getting paid. The act of adding a new invoice is no longer a chore; it's a satisfying feedback loop that lets you instantly see the results of your work on the dashboard and the statistics screen</p>
 
 <div class="full-width-visual-section">
     <img src="https://raw.githubusercontent.com/thornumak/Invoice-Management-System/refs/heads/main/images/tracking.png" alt="Invoice tracker main screen.">
@@ -241,11 +241,11 @@
                 <li><strong>A minimalist UI:</strong> The interface is built with the standard Python library Tkinter. It's not the prettiest app in the world, but it's functional, fast, and gets the job done without any unnecessary complexity.</li>
                 <li><strong>Personalized automation:</strong> The core "patterns" feature is designed for my specific workflow. While the app still works perfectly well with manual entry for other users, the main automation is a niche, personalized solution.</li>
                 <li><strong>Manual entry as a fallback:</strong> I knew the automation wouldn't be perfect. For invoices with unusual filenames or layouts, I made sure there was a simple manual entry form. If the parsing fails, you can always just type in the details yourself, so you're never stuck.</li>
-                <li><strong>Euro-centric for now:</strong> The main stats dashboard currently aggregates all currencies into a total displayed in Euros (€). This was the simplest solution for my own needs, but it's a known limitation I may address in the future.</li>
+                <li><strong>Euro-centric for now:</strong> While you can select currencies for individual invoices, the main stats dashboard currently aggregates all currencies into a total displayed in Euros (€). This was the fastest solution for my own needs, but it's a limitation I should probably address in the future.</li>
             </ul>
 
             <h2>The outcome</h2>
-            <p>In the end, what I have is a simple tool that turns a tedious monthly chore into a quick, automated process. It eliminates the kind of manual data entry that's prone to typos and headaches, and for me, it's a good reminder of how a small bit of automation can make a big difference.</p>
+            <p>In the end, what I have is a simple tool that turns a tedious monthly chore into a quick, automated, and even enjoyable process. It eliminates the kind of manual data entry that's prone to typos and headaches, and for me, it's a good reminder of how a small bit of automation can make a big difference.</p>
 
             <div class="cta-box">
                 <a href="https://github.com/thornumak/Invoice-Management-System" class="project-link">View the Code on GitHub</a>
