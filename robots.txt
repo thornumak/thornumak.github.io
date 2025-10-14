@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-https://thornumak.github.io/sitemap.xml
+Sitemap:https://thornumak.github.io/sitemap.xml
