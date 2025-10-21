@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes - Thornumak</title>
+    <title>Notes & Logbooks - Rytis P.</title>
     <style>
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         :root {
@@ -68,62 +68,91 @@
             justify-content: center;
             gap: 32px;
         }
-        
-        /* NOTE: You should have one nav style for the whole site.
-           Ideally this is in a separate .css file. For now, we'll copy it. */
+       
         .main-nav a {
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
             transition: color 0.2s ease;
-            position: relative;
-            padding: 4px 0;
         }
 
         .main-nav a:hover {
             color: var(--text-primary);
         }
-        
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* --- Page Header --- */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
-        .main-nav a:hover::after {
-            transform: scaleX(1);
-        }
-
-        @media (prefers-color-scheme: light) {
-            .main-nav {
-                background: rgba(255, 255, 255, 0.8);
-            }
-        }
-
-        h1 {
+        .page-header h1 {
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
-            margin-bottom: 40px;
+            margin-bottom: 16px;
+        }
+       
+        .page-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto;
         }
 
-        /* Styles for the list of notes */
-        .note-entry {
-            margin-bottom: 40px;
+        /* --- NEW Section Styles --- */
+        .notes-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
             border-bottom: 1px solid var(--card-border);
-            padding-bottom: 40px;
         }
 
-        .note-entry:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
+        .section-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        /* Logbook Specific Styles */
+        .project-logbook {
+            margin-bottom: 32px;
+        }
+       
+        .project-logbook h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+       
+        .project-logbook ul {
+            list-style: none;
+            padding-left: 0;
+        }
+       
+        .project-logbook li {
+            margin-bottom: 12px;
+        }
+       
+        .project-logbook a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+       
+        .project-logbook a:hover {
+            text-decoration: underline;
+        }
+
+        /* Musing/Guide Entry Styles */
+        .note-entry {
+            margin-bottom: 32px;
         }
 
         .note-entry .note-date {
@@ -133,9 +162,9 @@
         }
 
         .note-entry .note-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .note-entry .note-title a {
@@ -152,14 +181,14 @@
             color: var(--text-secondary);
             line-height: 1.7;
         }
-        
+       
         footer {
-             margin-top: 80px;
-             padding-top: 40px;
-             border-top: 1px solid var(--card-border);
-             text-align: center;
-             color: var(--text-secondary);
-             font-size: 0.875rem;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
         }
 
     </style>
@@ -168,7 +197,7 @@
 
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="/#projects">Projects</a> 
+            <a href="/#projects">Projects</a>
             <a href="/notes.html">Notes</a>
             <a href="/#about">About</a>
             <a href="/#contact">Contact</a>
@@ -176,28 +205,59 @@
     </nav>
 
     <div class="container">
-        <header>
-            <h1>Notes</h1>
+        <header class="page-header">
+            <h1>Notes & Logbooks</h1>
+            <p>The architect's studio. A collection of my #BuildinPublic logbooks, practical guides, and scattered thoughts on systems and design.</p>
         </header>
 
         <main>
-            <div class="note-entry">
-                <p class="note-date">September 29, 2025</p>
-                <h2 class="note-title">
-                    <a href="/notes/import-tutorial.html">How to Import Your Flashcards from a CSV File</a>
-                </h2>
-                <p class="note-summary">
-                    A guide for migrating your learning data from services like Memrise into a new home, using the universal CSV format.
-                </p>
-            </div>
+            <!-- Section 1: #BuildinPublic Logbooks -->
+            <section class="notes-section" id="logbooks">
+                <h2 class="section-title">#BuildinPublic Logbooks</h2>
+                <p class="section-subtitle">A transparent look at the strategy, design, and architecture behind my projects.</p>
 
-         
+                <div class="project-logbook">
+                    <h3>Mnemeo - SRS Learning Platform</h3>
+                    <ul>
+                        <li><a href="/notes/logbooks/mnemeo-toggle-switch.html">The complicated life of a single Toggle Switch</a></li>
+                        <!-- Add more Mnemeo logbook entries -->
+                    </ul>
+                </div>
+               
+                <!-- Add more project logbooks here -->
+                <!--
+                <div class="project-logbook">
+                    <h3>CEFR Text Simplifier</h3>
+                    <ul>
+                        <li><a href="#">(Coming Soon) Architecting a Deterministic AI Prompt</a></li>
+                    </ul>
+                </div>
+                -->
 
+            </section>
+
+            <!-- Section 2: Musings & Guides -->
+            <section class="notes-section" id="musings">
+                <h2 class="section-title">Musings & Misc</h2>
+                <p class="section-subtitle">Cognitive explorations and miscellaneous</p>
+
+                <div class="note-entry">
+                    <p class="note-date">September 29, 2025</p>
+                    <h2 class="note-title">
+                        <a href="/notes/guides/import-tutorial.html">How to Import Your Flashcards from a CSV File</a>
+                    </h2>
+                    <p class="note-summary">
+                        A practical guide for migrating your learning data from services like Memrise into a new home, using the universal CSV format.
+                    </p>
+                </div>
+               
+                <!--  more musings here -->
+
+            </section>
         </main>
-        
-      
-
+       
     </div>
 
 </body>
-</html>
+</html> 
+
