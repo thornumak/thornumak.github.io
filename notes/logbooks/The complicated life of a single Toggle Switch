@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complicated Life of a Single Toggle Switch</title>
+    <style>
+        /* --- Global Styles & Variables (Consistent with your site) --- */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f9fafb;
+                --text-primary: #111827;
+                --text-secondary: #6b7280;
+                --card-bg: rgba(0, 0, 0, 0.02);
+                --card-border: rgba(0, 0, 0, 0.06);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- Navigation Bar --- */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            width: 100%;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        
+        .main-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--text-primary);
+        }
+        
+        /* --- Article Styles --- */
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .article-content {
+            line-height: 1.8;
+        }
+        
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .article-content p, .article-content li {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .article-content ul {
+            padding-left: 20px;
+            list-style-type: '—  '; /* A more stylish bullet */
+        }
+        
+        .article-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* --- Full Width Visual Section --- */
+        .full-width-visual-section {
+            width: 100%;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .full-width-visual-section img {
+            max-width: 1000px;
+            width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid var(--card-border);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/#projects">Projects</a> 
+            <a href="/notes.html">Notes</a>
+            <a href="/#about">About</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <article class="article-content">
+            <header class="article-header">
+                <h1>The Complicated Life of a Single Toggle Switch</h1>
+            </header>
+
+            <p>When I first started building Mnemeo, the plan seemed simple. I missed the old Memrise typing mode, so I'd build an app that had a great one. But I also knew a simple Anki-style rating mode was essential for quick reviews or mobile use. The obvious solution: offer both.</p>
+            <p>I was surprised how few apps actually do this well. You can often get a typing mode in Anki, for instance, but it usually involves a fair bit of tinkering. So, making this dual-mode system a core, easy-to-use feature became one of Mnemeo's key differentiators.</p>
+            <p>But this humble toggle switch started causing architectural headaches.</p>
+            
+            <h2>Problem #1: Convenience vs Logic</h2>
+            <p>The toggle is a global setting, so logically it belongs on the global "Settings" page. But for my own early testing, I slapped it onto every deck page because it was convenient. The problem was that it felt wrong. It was a global switch pretending to be a local one, living right next to truly per-deck settings. Heresy!</p>
+            <p>This was a classic battle between short-term convenience and long-term clarity. In the end, I decided logic had to win. A misleading UI is a form of friction, and my entire goal is to remove friction. I moved the toggle to its proper place.</p>
+
+            <h2>Problem #2: The Default Dilemma</h2>
+            <p>With the toggle now neatly tucked away, I had to decide what a new user would see first. I love the typing mode, but I had to admit that a simple rating mode is a much faster and lower-friction entry point, especially for someone signing up on their phone. So I made another pragmatic choice: the default for all new users would be Rating Mode.</p>
+            
+            <h2>Problem #3: Discoverability</h2>
+            <p>I had just engineered a perfect nightmare. I had taken my app's most unique and powerful feature - the one I built the app for - and made it completely invisible to every single new user.</p>
+            <p>The risk of a user signing up for the typing mode, not finding it, and leaving was huge. I needed a way to make it discoverable without cluttering the clean, simple interface I was trying to build. I explored a few ideas:</p>
+            
+            <ul>
+                <li><strong>The "Always-On" Toggle:</strong> I considered putting the switch right on the study screen. But I rejected this - it felt like adding an unnecessary complication for an MVP, and my guess is that most users, once they find their preferred mode, don't want a toggle constantly taking up screen space.</li>
+                <li><strong>The "Helpful" Nag:</strong> I also thought about a persistent, dismissible banner ("Did you know about typing mode?"). Didn’t like this because adding a pop-up to an app designed to hopefully reduce cognitive load felt a bit ironic.</li>
+            </ul>
+            
+            <p>For now, I've settled on a simple "nudge." After a new user completes their first couple of study sessions, a small tip appears in the summary: "<strong>Tip:</strong> You can switch to typing mode in settings for a different learning experience."</p>
+
+            <div class="full-width-visual-section">
+                <img src="images/newuser.png" alt="A screenshot showing the 'nudge' tip in the session summary.">
+            </div>
+
+            <p>It’s a classic design trade-off. This is my current solution, and I'm still gathering data on how well it works. It's funny how a single UI element can send you down such a rabbit hole of design decisions. What looks simple on the surface is often the result of a hundred tiny, deliberate choices.</p>
+        </article>
+        
+       
+    </div>
+
+</body>
+</html>
